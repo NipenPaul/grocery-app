@@ -1,5 +1,5 @@
 # grocery-app
-You can add, edit, delete, view, and search the product
+You can add, edit, delete, view, and search the product.<br>
 Using HTML, CSS, JavaScript, Nodejs, Express, and MongoDB
 
 ## Live Server
