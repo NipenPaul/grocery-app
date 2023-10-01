@@ -6,3 +6,5 @@ Using HTML, CSS, JavaScript, Nodejs, Express, and MongoDB
 
 You can view the live version of this project [here](https://grocery-app-rho.vercel.app/).
 
+![Demo Image](./demo.png)
+
