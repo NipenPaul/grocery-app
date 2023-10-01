@@ -12,6 +12,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+
 // Internal Module
 const Product = require('./models/productModel');
 
@@ -20,13 +21,15 @@ const productsRouter = require('./routes/products');
 
 const app = express();
 app.use(bodyParser.json());
+require('dotenv').config();
 
 // Database Connection
 // mongoose.connect('mongodb://localhost:27017/grocery', {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 // });
-mongoose.connect('mongodb+srv://Nipen:174038@cluster0.uvc4mtm.mongodb.net/?retryWrites=true&w=majority', {
+const MONGODB_CONNECT_URI = process.env.MONGODB_CONNECT_URI;
+mongoose.connect(`${MONGODB_CONNECT_URI}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -41,7 +44,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 app.use('/api/products', productsRouter); // Use the products router
 
-const port = 3000;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
